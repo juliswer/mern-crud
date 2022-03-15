@@ -18,10 +18,10 @@ app.use(express.json())
 app.use(cors(corsOptions));
 
 // Routes
-app.use(notesRoutes, (req, res, next) => {
+app.use('/api', notesRoutes, (req, res, next) => {
   next();
 });
-app.use(commentsRoutes, (req, res, next) => {
+app.use('/api', commentsRoutes, (req, res, next) => {
   next();
 });
 
