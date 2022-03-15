@@ -17,8 +17,6 @@ const postComment = async (req, res) => {
     const comment = commentContent;
     await Note.findByIdAndUpdate(id, {
       comments: { ...comment },
-    }, {
-        new: true
     });
     res.json({
       comment,
