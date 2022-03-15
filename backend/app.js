@@ -17,11 +17,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors(corsOptions));
 
 // Routes
-app.use(notesRoutes, () => {
-    console.log("Notes routes");
+app.use(notesRoutes, (req, res, next) => {
+  console.log("Notes routes");
+  next();
 });
-app.use(commentsRoutes, () => {
-    console.log("Comments routes")
+app.use(commentsRoutes, (req, res, next) => {
+  console.log("Comments routes");
+  next();
 });
 
 module.exports = app;

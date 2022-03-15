@@ -9,7 +9,7 @@ const NoteSchema = new Schema({
     desription: {
         type: String,
     },
-    comment: [Comment.schema],
+    comments: [Comment.schema],
     done: {
         type: Boolean,
         default: false
