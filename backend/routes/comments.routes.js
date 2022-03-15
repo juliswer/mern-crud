@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const {
   getComments,
+  detailComment,
   postComment,
   deleteComment,
   updateComment
@@ -9,6 +10,8 @@ const {
 const router = Router();
 
 router.get("/note/:id/comments", getComments);
+
+router.get('/note/:id/comments/:commentId', detailComment);
 
 router.post("/note/:id/comments", postComment);
 

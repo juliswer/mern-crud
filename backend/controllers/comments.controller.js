@@ -9,6 +9,17 @@ const getComments = async (req, res) => {
   }
 };
 
+const detailComment = async (req, res) => {
+  try {
+    const { id, commentId } = req.params;
+
+    const note = await Note.findById(id);
+    res.status(200).json(note);
+  } catch (error) {
+    console.log("Error: ", error);
+  }
+};
+
 const postComment = async (req, res) => {
   const { id } = req.params;
 
@@ -16,9 +27,9 @@ const postComment = async (req, res) => {
     const commentContent = req.body;
     const comment = commentContent;
     await Note.findOneAndUpdate(id, {
-        $push: { comments: comment }
+      $push: { comments: comment },
     });
-    res.status(200).send('comment posted')
+    res.status(200).send("comment posted");
   } catch (error) {
     console.log("Error: ", error);
   }
@@ -44,17 +55,18 @@ const updateComment = async (req, res) => {
     const { comment } = req.body;
 
     await Note.findByIdAndUpdate(id, {
-        comments: comment,
-        new: true
+      comments: comment,
+      new: true,
     });
-    res.status(200).send('comment updated');
+    res.status(200).send("comment updated");
   } catch (error) {
-      console.log('Error: ', error)
+    console.log("Error: ", error);
   }
 };
 
 module.exports = {
   getComments,
+  detailComment,
   postComment,
   deleteComment,
   updateComment,
