@@ -4,7 +4,8 @@ const {
   detailComment,
   postComment,
   deleteComment,
-  updateComment
+  updateComment,
+  likedComment
 } = require("../controllers/comments.controller");
 
 const router = Router();
@@ -18,5 +19,7 @@ router.post("/note/:id/comments", postComment);
 router.delete("/note/:id/comments/:commentId", deleteComment);
 
 router.put('/note/:id/comments/:commentId', updateComment);
+
+router.put('/note/:id/comments/:commentId/toggleLike', likedComment);
 
 module.exports = router;

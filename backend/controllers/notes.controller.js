@@ -54,10 +54,27 @@ const deleteNote = async (req, res) => {
     }
 };
 
+const toggleDone = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const note = await Note.findById(id);
+  
+    note.done = !note.done;
+  
+    note.save();
+
+    res.status(200).send('Done toggled');
+  } catch (error) {
+    console.log('Error: ', error)
+  }
+}
+
 module.exports = {
   getNotes,
   postNote,
   noteDetail,
   updateNote,
-  deleteNote
+  deleteNote,
+  toggleDone
 };

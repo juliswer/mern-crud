@@ -4,7 +4,8 @@ const {
   postNote,
   noteDetail,
   updateNote,
-  deleteNote
+  deleteNote,
+  toggleDone
 } = require("../controllers/notes.controller");
 
 const router = Router();
@@ -18,5 +19,7 @@ router.get("/note/:id", noteDetail);
 router.put("/note/:id", updateNote);
 
 router.delete("/note/:id", deleteNote);
+
+router.put('/note/:id/toggleDone', toggleDone)
 
 module.exports = router;

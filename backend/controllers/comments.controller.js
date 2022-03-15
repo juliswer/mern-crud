@@ -65,10 +65,25 @@ const updateComment = async (req, res) => {
   }
 };
 
+const likedComment = async (req, res) => {
+  try {
+    const { id, commentId } = req.params;
+
+    Note.findByIdAndUpdate(id, {
+        "comments.$.likes": !"comments.$.likes"
+    })
+
+    res.status(200).send("comment likedChange");
+  } catch (error) {
+    console.log("Error: ", error);
+  }
+};
+
 module.exports = {
   getComments,
   detailComment,
   postComment,
   deleteComment,
   updateComment,
+  likedComment,
 };
