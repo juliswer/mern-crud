@@ -1,16 +1,13 @@
 const {Schema, model} = require('mongoose');
-const Comment = require('./Comment');
 
-const NoteSchema = new Schema({
+const CommentSchema = new Schema({
     title: {
         type: String,
-        unique: true
     },
     desription: {
         type: String,
     },
-    comment: [Comment.schema],
-    done: {
+    liked: {
         type: Boolean,
         default: false
     }
@@ -19,4 +16,4 @@ const NoteSchema = new Schema({
     versionKey: false
 })
 
-module.exports = model('Note', NoteSchema);
+module.exports = model('Comment', CommentSchema);
