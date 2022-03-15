@@ -1,9 +1,13 @@
 const Comment = require('../models/Comment');
 
 const getComments = async (req, res) => {
-    res.json({
-        message: 'Comments'
-    })
+    try {
+        res.json({
+            message: 'Comments'
+        })
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 module.exports = {
