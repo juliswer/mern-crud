@@ -15,12 +15,10 @@ const postComment = async (req, res) => {
   try {
     const commentContent = req.body;
     const comment = commentContent;
-    await Note.findByIdAndUpdate(id, {
-      comments: {...comment}
+    await Note.findOneAndUpdate(id, {
+        $push: { comments: comment }
     });
-    res.json({
-      comment,
-    });
+    res.status(200).send('comment posted')
   } catch (error) {
     console.log("Error: ", error);
   }
