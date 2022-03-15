@@ -20,13 +20,37 @@ const postNote = async (req, res) => {
 };
 
 const noteDetail = async (req, res) => {
-    
+  try {
+    const { id } = req.params;
+    const note = await Note.findById(id);
+    res.status(200).json(note);
+  } catch (error) {
+    console.log("Error: ", error);
+  }
+};
+
+const updateNote = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const note = await Note.findByIdAndUpdate(id, req.body, {
+      new: true,
+    });
+    res.status(200).json(note);
+  } catch (error) {
+    console.log("Error: ", error);
+  }
+};
+
+const deleteNote = async (req, res) => {
     try {
-        const {id} = req.params
-        const note = await Note.findById(id)
-        res.status(200).json(note)
+        const {id} = req.params;
+
+        const deletedNote = await Note.findByIdAndDelete(id);
+
+        res.status(200).json(deletedNote);
+
     } catch (error) {
-        console.log('Error: ', error)
+        console.log(error)
     }
 };
 
@@ -34,4 +58,6 @@ module.exports = {
   getNotes,
   postNote,
   noteDetail,
+  updateNote,
+  deleteNote
 };
