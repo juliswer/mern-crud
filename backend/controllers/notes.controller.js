@@ -10,16 +10,28 @@ const getNotes = async (req, res) => {
 };
 
 const postNote = async (req, res) => {
+  try {
+    const note = new Note(req.body);
+    await note.save();
+    res.status(200).json(note);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const noteDetail = async (req, res) => {
+    
     try {
-        const note = new Note(req.body);
-        await note.save();
-        res.status(200).json(note);
+        const {id} = req.params
+        const note = await Note.findById(id)
+        res.status(200).json(note)
     } catch (error) {
-        console.log(error);
+        console.log('Error: ', error)
     }
 };
 
 module.exports = {
   getNotes,
   postNote,
+  noteDetail,
 };
