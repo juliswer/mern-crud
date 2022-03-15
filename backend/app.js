@@ -1,14 +1,15 @@
 const express = require("express");
 const morgan = require("morgan");
 const notesRoutes = require("./routes/notes.routes");
-const cors = require('cors');
-const {URLDEPLOY} = require('./config') 
+const commentsRoutes = require("./routes/comments.routes");
+const cors = require("cors");
+const { URLDEPLOY } = require("./config");
 
 const app = express();
 
 const corsOptions = {
-    origin: 'http://localhost:3000' || URLDEPLOY,
-}
+  origin: "http://localhost:3000" || URLDEPLOY,
+};
 
 // Middlewares
 app.use(morgan("dev"));
@@ -16,6 +17,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors(corsOptions));
 
 // Routes
-app.use(notesRoutes);
+app.use(notesRoutes, () => {
+    console.log("Notes routes");
+});
+app.use(commentsRoutes, () => {
+    console.log("Comments routes")
+});
 
 module.exports = app;
