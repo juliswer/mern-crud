@@ -1,4 +1,5 @@
 const Note = require("../models/Note");
+const Comment = require("../models/Comment");
 
 const getComments = async (req, res) => {
   try {
@@ -27,9 +28,17 @@ const postComment = async (req, res) => {
 };
 
 const deleteComment = async (req, res) => {
-  res.json({
-    message: "Delete comment",
-  });
+  try {
+    const { id, commentId } = req.params;
+
+    await Note.findByIdAndUpdate(id, {
+        $pull: {comments: {_id: commentId}},
+    })
+
+    res.status(200).send("deleted succesfully");
+  } catch (error) {
+    console.log("Error: ", error);
+  }
 };
 
 module.exports = {
