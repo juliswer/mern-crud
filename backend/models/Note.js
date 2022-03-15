@@ -6,7 +6,7 @@ const NoteSchema = new Schema({
         type: String,
         unique: true
     },
-    desription: {
+    description: {
         type: String,
     },
     comments: [Comments.schema],

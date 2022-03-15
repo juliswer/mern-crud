@@ -1,4 +1,5 @@
 const Comment = require("../models/Comment");
+const Note = require("../models/Note");
 
 const getComments = async (req, res) => {
   try {
@@ -10,10 +11,17 @@ const getComments = async (req, res) => {
 };
 
 const postComment = async (req, res) => {
+  const { id } = req.params;
+
   try {
-    const comment = new Comment(req.body);
-    await comment.save();
-    res.json(comment);
+    const commentContent = req.body;
+    const comment = commentContent;
+    await Note.findByIdAndUpdate(id, {
+      comments: { ...comment },
+    });
+    res.json({
+      comment,
+    });
   } catch (error) {
     console.log("Error: ", error);
   }
