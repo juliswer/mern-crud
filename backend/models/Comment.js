@@ -4,7 +4,7 @@ const CommentSchema = new Schema({
     title: {
         type: String,
     },
-    desription: {
+    description: {
         type: String,
     },
     liked: {

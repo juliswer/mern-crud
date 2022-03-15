@@ -17,6 +17,8 @@ const postComment = async (req, res) => {
     const comment = commentContent;
     await Note.findByIdAndUpdate(id, {
       comments: { ...comment },
+    }, {
+        new: true
     });
     res.json({
       comment,
@@ -46,9 +48,13 @@ const updateComment = async (req, res) => {
     const { comment } = req.body;
 
     await Note.findByIdAndUpdate(id, {
-      comments: { commentId, comment },
+        comments: comment,
+        new: true
     });
-  } catch (error) {}
+    res.status(200).send('comment updated');
+  } catch (error) {
+      console.log('Error: ', error)
+  }
 };
 
 module.exports = {
