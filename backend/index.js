@@ -1,7 +1,9 @@
-const app = require('./app');
-const notesRoutes = require('./routes/notes.routes');
+const app = require("./app");
+const notesRoutes = require("./routes/notes.routes");
+require("./db");
+const {PORT} = require("./config")
 
-app.use(notesRoutes)
+app.use(notesRoutes);
 
-app.listen(3000)
-console.log('Server listening on port 3000')
+app.listen(PORT);
+console.log(`Server is running on port ${PORT}`);
