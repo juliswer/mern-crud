@@ -1,4 +1,3 @@
-const Comment = require("../models/Comment");
 const Note = require("../models/Note");
 
 const getComments = async (req, res) => {
