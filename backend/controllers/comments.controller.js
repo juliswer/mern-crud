@@ -69,9 +69,13 @@ const likedComment = async (req, res) => {
   try {
     const { id, commentId } = req.params;
 
-    Note.findByIdAndUpdate(id, {
-        "comments.$.likes": !"comments.$.likes"
-    })
+    const note = await Note.findById(id);
+
+    const comment = note.comments.id(commentId);
+
+    comment.liked = !comment.liked;
+
+    await note.save();
 
     res.status(200).send("comment likedChange");
   } catch (error) {
