@@ -16,4 +16,4 @@ const CommentSchema = new Schema({
     versionKey: false
 })
 
-module.exports = model('Comment', CommentSchema);
+module.exports = model('Comments', CommentSchema);

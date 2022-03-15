@@ -14,15 +14,14 @@ const corsOptions = {
 // Middlewares
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
+app.use(express.json())
 app.use(cors(corsOptions));
 
 // Routes
 app.use(notesRoutes, (req, res, next) => {
-  console.log("Notes routes");
   next();
 });
 app.use(commentsRoutes, (req, res, next) => {
-  console.log("Comments routes");
   next();
 });
 

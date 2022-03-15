@@ -1,5 +1,5 @@
 const {Schema, model} = require('mongoose');
-const Comment = require('./Comment');
+const Comments = require('./Comment');
 
 const NoteSchema = new Schema({
     title: {
@@ -9,7 +9,7 @@ const NoteSchema = new Schema({
     desription: {
         type: String,
     },
-    comments: [Comment.schema],
+    comments: [Comments.schema],
     done: {
         type: Boolean,
         default: false
