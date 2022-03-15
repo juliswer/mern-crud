@@ -14,7 +14,8 @@ const detailComment = async (req, res) => {
     const { id, commentId } = req.params;
 
     const note = await Note.findById(id);
-    res.status(200).json(note);
+    const comment = note.comments.id(commentId);
+    res.status(200).json(comment);
   } catch (error) {
     console.log("Error: ", error);
   }
