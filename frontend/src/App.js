@@ -6,8 +6,16 @@ import NoteComment from "./pages/NoteComment";
 import NoteDetail from "./pages/NoteDetail";
 import axios from "axios";
 import NotWorking from "./pages/NotWoking";
+import { Button } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 function App() {
+  const darkTheme = createTheme({
+    palette: {
+      mode: "dark",
+    },
+  });
+
   const navigate = useNavigate();
 
   const fetchData = async (req, res) => {
@@ -25,13 +33,15 @@ function App() {
   }, []);
 
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/note/:id" element={<NoteDetail />} />
-      <Route path="/note/:id/comments/:commentId" element={<NoteComment />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/error" element={<NotWorking />} />
-    </Routes>
+    <ThemeProvider theme={darkTheme}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/note/:id" element={<NoteDetail />} />
+        <Route path="/note/:id/comments/:commentId" element={<NoteComment />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/error" element={<NotWorking />} />
+      </Routes>
+    </ThemeProvider>
   );
 }
 
