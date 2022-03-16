@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, createContext } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import About from "./pages/About";
 import Home from "./pages/Home";
@@ -10,6 +10,9 @@ import { Button } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 function App() {
+
+  export const notesData = createContext();
+
   const darkTheme = createTheme({
     palette: {
       mode: "dark",
@@ -28,7 +31,7 @@ function App() {
     }
   };
 
-  useEffect(async () => {
+  useEffect(() => {
     fetchData();
   }, []);
 
