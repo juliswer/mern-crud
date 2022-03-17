@@ -8,7 +8,7 @@ import IconButton from "@mui/material/IconButton";
 const Layout = ({ children }) => {
   return (
     <div>
-      <Box sx={{ flexGrow: 1 }}>
+      <Box>
         <AppBar position="static">
           <Toolbar variant="dense">
             <IconButton
