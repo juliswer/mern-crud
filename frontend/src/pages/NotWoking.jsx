@@ -26,7 +26,7 @@ const NotWoking = () => {
     }
   };
 
-  useEffect(async () => {
+  useEffect(() => {
     fetchData();
   }, []);
 
