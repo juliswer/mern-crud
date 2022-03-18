@@ -54,6 +54,13 @@ const NotWoking = () => {
         >
           <span style={{fontWeight: "bold", textDecoration: "line-through"}}>Sh***t!</span> Maybe the backend is down
         </Typography>
+        <Typography
+          variant="h6"
+          component="h6"
+          align="center"
+        >
+          Come back soon!
+        </Typography>
         <Button href="mailto:julianswer36@gmail.com" endIcon={<SendIcon />} variant="outlined" color="error" style={{marginTop: "10px"}}>Contact me to fix it!</Button>
       </Grid>
     </div>
