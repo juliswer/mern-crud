@@ -25,8 +25,11 @@ const Home = ({ notes }) => {
           <Grid item xs={3} key={note._id}>
             <Card style={{ marginBottom: "30px" }}>
               <CardContent>
-                <Typography variant="h6" component="h6">
+                <Typography variant="h6" component="h6" gutterBottom>
                   {note.title}
+                </Typography>
+                <Typography color="text.secondary">
+                  {note.description}
                 </Typography>
               </CardContent>
               <CardActions style={{display: 'flex', justifyContent: 'space-between'}}>
