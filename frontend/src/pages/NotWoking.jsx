@@ -54,7 +54,7 @@ const NotWoking = () => {
         >
           Wow! Maybe the backend is down
         </Typography>
-        <Button href="https://c.tenor.com/" endIcon={<SendIcon />} variant="outlined" color="secondary" style={{marginTop: "10px"}}>Contact me to fix it!</Button>
+        <Button href="mailto:julianswer36@gmail.com" endIcon={<SendIcon />} variant="outlined" color="secondary" style={{marginTop: "10px"}}>Contact me to fix it!</Button>
       </Grid>
     </div>
   );
