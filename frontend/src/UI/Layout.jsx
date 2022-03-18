@@ -4,12 +4,17 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
+import EventNoteTwoToneIcon from "@mui/icons-material/EventNoteTwoTone";
+import { Link } from "react-router-dom";
 
 const Layout = ({ children }) => {
   return (
     <div>
       <Box>
-        <AppBar position="static" className="animate__animated animate__fadeInDown">
+        <AppBar
+          position="static"
+          className="animate__animated animate__fadeInDown"
+        >
           <Toolbar variant="dense">
             <IconButton
               edge="start"
@@ -17,10 +22,10 @@ const Layout = ({ children }) => {
               aria-label="menu"
               sx={{ mr: 2 }}
             >
-              gadg
+              <Link to="/" style={{color: 'inherit'}}><EventNoteTwoToneIcon /></Link>
             </IconButton>
             <Typography variant="h6" color="inherit" component="div">
-              Photos
+              Notes App
             </Typography>
           </Toolbar>
         </AppBar>

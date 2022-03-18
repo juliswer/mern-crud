@@ -6,14 +6,14 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import Layout from "./UI/Layout";
-import './css/global.css'
+import "./css/global.css";
 import "animate.css";
 
 ReactDOM.render(
-  <Layout>
-    <Router>
+  <Router>
+    <Layout>
       <App />
-    </Router>
-  </Layout>,
+    </Layout>
+  </Router>,
   document.getElementById("root")
 );
