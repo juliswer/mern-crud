@@ -7,6 +7,7 @@ import {
   CardContent,
   Button,
 } from "@mui/material";
+import AddLinkTwoToneIcon from '@mui/icons-material/AddLinkTwoTone';
 import { Link } from "react-router-dom";
 
 const Home = ({ notes }) => {
@@ -25,8 +26,8 @@ const Home = ({ notes }) => {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button >
-                  <Link to={`/note/${note._id}`} style={{color: 'inherit', textDecoration: 'none'}}>See Note</Link>
+                <Button endIcon={<AddLinkTwoToneIcon />} variant="outlined" color="warning">
+                  <Link to={`/note/${note._id}`} style={{color: 'inherit', textDecoration: 'none'}} target="_blank">See Note</Link>
                 </Button>
               </CardActions>
             </Card>
