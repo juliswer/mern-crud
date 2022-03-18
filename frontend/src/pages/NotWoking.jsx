@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Typography, Snackbar, Stack } from "@mui/material";
+import { Typography, Snackbar, Stack, Grid, Button } from "@mui/material";
 import Alert from "@mui/material/Alert";
+import SendIcon from '@mui/icons-material/Send';
 
 export const SnackBar = () => (
   <Snackbar autoHideDuration={6000}>
@@ -31,27 +32,30 @@ const NotWoking = () => {
 
   return (
     <div>
-      <Stack
-        spacing={2}
+      <Grid
+        container
+        spacing={0}
         direction="column"
         alignItems="center"
-        justifyItems="center"
+        justifyContent="center"
+        style={{ minHeight: "100vh" }}
       >
-          <img
-            src="https://c.tenor.com/b4SAZN3xkM4AAAAM/andyrentz-giant-bomb.gif"
-            alt="error"
-            style={{ width: "100px", height: "100px" }}
-            className="animate__animated animate__zoomIn"
-          />
-          <Typography
-            variant="h3"
-            component="h1"
-            align="center"
-            className="animate__animated animate__fadeInDown"
-          >
-            Wow! Maybe the backend is down
-          </Typography>
-      </Stack>
+        <img
+          src="https://c.tenor.com/b4SAZN3xkM4AAAAM/andyrentz-giant-bomb.gif"
+          alt="error"
+          style={{ width: "300px", height: "300px" }}
+          className="animate__animated animate__zoomIn"
+        />
+        <Typography
+          variant="h3"
+          component="h1"
+          align="center"
+          className="animate__animated animate__fadeInDown"
+        >
+          Wow! Maybe the backend is down
+        </Typography>
+        <Button href="https://c.tenor.com/" endIcon={<SendIcon />} variant="outlined" color="secondary" style={{marginTop: "10px"}}>Contact me to fix it!</Button>
+      </Grid>
     </div>
   );
 };
