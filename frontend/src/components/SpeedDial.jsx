@@ -2,25 +2,22 @@ import Box from "@mui/material/Box";
 import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialIcon from "@mui/material/SpeedDialIcon";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
-import FileCopyIcon from "@mui/icons-material/FileCopyOutlined";
-import SaveIcon from "@mui/icons-material/Save";
-import PrintIcon from "@mui/icons-material/Print";
-import ShareIcon from "@mui/icons-material/Share";
+import AddCircleOutlineTwoToneIcon from '@mui/icons-material/AddCircleOutlineTwoTone';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
 
 const actions = [
-  { icon: <FileCopyIcon />, name: "Copy" },
-  { icon: <SaveIcon />, name: "Save" },
-  { icon: <PrintIcon />, name: "Print" },
-  { icon: <ShareIcon />, name: "Share" },
+  { icon: <AddCircleOutlineTwoToneIcon />, name: "Create a Note" },
+  { icon: <InfoOutlinedIcon />, name: "About the App" }
 ];
 
 const SpeedDialComponent = () => {
   return (
     <Box >
       <SpeedDial
-        ariaLabel="SpeedDial basic example"
+        ariaLabel="Notes Button"
         sx={{ position: "absolute", bottom: 16, right: 16 }}
-        icon={<SpeedDialIcon />}
+        icon={<SpeedDialIcon openIcon={<CreateOutlinedIcon />} />}
       >
         {actions.map((action) => (
           <SpeedDialAction
