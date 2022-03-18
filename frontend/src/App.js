@@ -1,21 +1,29 @@
-import { useEffect, createContext } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { Routes, Route } from "react-router-dom";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import NoteComment from "./pages/NoteComment";
 import NoteDetail from "./pages/NoteDetail";
-import axios from "axios";
 import NotWorking from "./pages/NotWoking";
-import { Button } from "@mui/material";
 
 function App() {
+  const [notesInfo, setNotesInfo] = useState([]);
+
   const navigate = useNavigate();
 
-  const fetchData = async (req, res) => {
+  const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/api");
-      const data = response.data();
-      res.json(data);
+      await fetch("http://localhost:4000/api").then((data) => {
+        data.json().then((data) => {
+          setNotesInfo(data);
+        });
+      });
+
+      const res = await axios.get("http://localhost:4000/api");
+      const data = res.data;
+      setNotesInfo(data);
     } catch (error) {
       navigate("/error");
     }
@@ -27,7 +35,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home notes={notesInfo} />} />
       <Route path="/note/:id" element={<NoteDetail />} />
       <Route path="/note/:id/comments/:commentId" element={<NoteComment />} />
       <Route path="/about" element={<About />} />

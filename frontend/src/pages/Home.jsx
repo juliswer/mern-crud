@@ -1,9 +1,14 @@
-import React from 'react'
-
-const Home = () => {
+const Home = ({ notes }) => {
   return (
-    <div>Home</div>
-  )
-}
+    <div>
+      <h1>Home</h1>
+      {notes.map((note) => (
+        <div key={note._id}>
+          <h2>{note.title}</h2>
+        </div>
+      ))}
+    </div>
+  );
+};
 
-export default Home
+export default Home;

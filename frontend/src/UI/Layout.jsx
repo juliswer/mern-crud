@@ -12,15 +12,16 @@ const Layout = ({ children }) => {
     <div>
       <Box>
         <AppBar
-          position="static"
+          position="sticky"
           className="animate__animated animate__fadeInDown"
+          style={{backgroundColor: '#6D64EB'}}
         >
           <Toolbar variant="dense">
             <IconButton
               edge="start"
               color="inherit"
               aria-label="menu"
-              sx={{ mr: 2 }}
+              sx={{ mr: 1}}
             >
               <Link to="/" style={{color: 'inherit'}}><EventNoteTwoToneIcon /></Link>
             </IconButton>
