@@ -52,9 +52,9 @@ const NotWoking = () => {
           align="center"
           className="animate__animated animate__fadeInDown"
         >
-          Wow! Maybe the backend is down
+          <span style={{fontWeight: "bold", textDecoration: "line-through"}}>Sh***t!</span> Maybe the backend is down
         </Typography>
-        <Button href="mailto:julianswer36@gmail.com" endIcon={<SendIcon />} variant="outlined" color="secondary" style={{marginTop: "10px"}}>Contact me to fix it!</Button>
+        <Button href="mailto:julianswer36@gmail.com" endIcon={<SendIcon />} variant="outlined" color="error" style={{marginTop: "10px"}}>Contact me to fix it!</Button>
       </Grid>
     </div>
   );
