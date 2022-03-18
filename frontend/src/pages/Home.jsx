@@ -26,7 +26,7 @@ const Home = ({ notes }) => {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button endIcon={<AddLinkTwoToneIcon />} variant="outlined" color="warning">
+                <Button endIcon={<AddLinkTwoToneIcon />} variant="text" color="warning" size="medium">
                   <Link to={`/note/${note._id}`} style={{color: 'inherit', textDecoration: 'none'}} target="_blank">See Note</Link>
                 </Button>
               </CardActions>
