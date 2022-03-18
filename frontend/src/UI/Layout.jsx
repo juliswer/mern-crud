@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
   return (
     <div>
       <Box>
-        <AppBar position="static">
+        <AppBar position="static" className="animate__animated animate__fadeInDown">
           <Toolbar variant="dense">
             <IconButton
               edge="start"

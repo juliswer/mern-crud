@@ -7,6 +7,7 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import Layout from "./UI/Layout";
 import './css/global.css'
+import "animate.css";
 
 ReactDOM.render(
   <Layout>

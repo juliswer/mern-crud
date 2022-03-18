@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Typography, Box, Snackbar, Stack } from "@mui/material";
-import "animate.css";
+import { Typography, Snackbar, Stack } from "@mui/material";
 import Alert from "@mui/material/Alert";
 
 export const SnackBar = () => (
@@ -32,11 +31,16 @@ const NotWoking = () => {
 
   return (
     <div>
-      <Stack spacing={2} alignItems='center' justifyItems='center'>
+      <Stack
+        spacing={2}
+        direction="column"
+        alignItems="center"
+        justifyItems="center"
+      >
           <img
             src="https://c.tenor.com/b4SAZN3xkM4AAAAM/andyrentz-giant-bomb.gif"
             alt="error"
-            style={{width: '100px', height: '100px'}}
+            style={{ width: "100px", height: "100px" }}
             className="animate__animated animate__zoomIn"
           />
           <Typography
