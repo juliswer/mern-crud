@@ -4,9 +4,10 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import FavoriteBorderTwoToneIcon from "@mui/icons-material/FavoriteBorderTwoTone";
-import { Grid } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import CalendarMonthTwoToneIcon from "@mui/icons-material/CalendarMonthTwoTone";
 import ReactTimeAgo from "react-time-ago";
+import {Link} from 'react-router-dom';
 
 const AccordionComponent = ({ note }) => {
   const testDate = (createdDate, updatedDate, comment) => {
@@ -87,10 +88,14 @@ const AccordionComponent = ({ note }) => {
           </AccordionDetails>
         </Accordion>
       ) : (
-        <Accordion disabled>
+        <Accordion>
           <AccordionSummary>
             <Typography>There are not comments yet</Typography>
           </AccordionSummary>
+          <AccordionDetails>
+            <Button><Link to={`/note/${note._id}`} style={{color: "inherit", textDecoration: 'none'}}>Create a comment</Link></Button>
+            
+          </AccordionDetails>
         </Accordion>
       )}
     </div>
