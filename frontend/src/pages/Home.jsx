@@ -13,9 +13,9 @@ import CheckCircleOutlineTwoToneIcon from "@mui/icons-material/CheckCircleOutlin
 import SpeedDial from "../components/SpeedDial";
 import Accordion from "../components/Accordion";
 import CalendarMonthTwoToneIcon from "@mui/icons-material/CalendarMonthTwoTone";
+import ReactTimeAgo from 'react-time-ago'
 
 const Home = ({ notes }) => {
-  const date = new Date();
 
   const testDate = (createdDate, updatedDate, note) => {
     if (createdDate === updatedDate) {
@@ -32,8 +32,8 @@ const Home = ({ notes }) => {
             justifyContent: "flex-end",
           }}
         >
-          <CalendarMonthTwoToneIcon /> Created At:{" "}
-          {date.toDateString(note.createdAt).slice(3)}
+           Created: {" "}
+          <ReactTimeAgo date={note.createdAt} locale="en-US" />
         </Typography>
       );
     } else if (createdDate !== updatedDate) {
@@ -50,8 +50,8 @@ const Home = ({ notes }) => {
             justifyContent: "flex-end",
           }}
         >
-          <CalendarMonthTwoToneIcon /> Updated At:{" "}
-          {date.toDateString(note.updatedAt).slice(3)}
+           Updated: {" "}
+          <ReactTimeAgo date={note.updatedAt} locale="en-US" />
         </Typography>
       );
     }
