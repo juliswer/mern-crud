@@ -83,6 +83,7 @@ const Home = ({ notes }) => {
                   marginBottom: "30px",
                   backgroundColor: "rgba(31,41,55,0.7)",
                   color: "#fff",
+                  boxShadow: "5px 5px 5px black",
                   padding: "20px",
                 }}
                 variant="outlined"
