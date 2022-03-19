@@ -18,16 +18,22 @@ const Home = ({ notes }) => {
   const date = new Date();
 
   const testDate = (createdDate, updatedDate, note) => {
-    if(createdDate == updatedDate) {
+    if (createdDate == updatedDate) {
       return (
-        <h2><CalendarMonthTwoToneIcon /> Created At: {date.toDateString(note.createdAt).slice(3)}</h2>
-      )
+        <Typography color="text.secondary">
+          <CalendarMonthTwoToneIcon /> Created At:{" "}
+          {date.toDateString(note.createdAt).slice(3)}
+        </Typography>
+      );
     } else if (createdDate !== updatedDate) {
       return (
-        <h2><CalendarMonthTwoToneIcon /> Updated At: {date.toDateString(note.updatedAt).slice(3)}</h2>
-      )
+        <Typography color="text.secondary">
+          <CalendarMonthTwoToneIcon /> Updated At:{" "}
+          {date.toDateString(note.updatedAt).slice(3)}
+        </Typography>
+      );
     }
-  }
+  };
 
   return (
     <div>
@@ -51,7 +57,7 @@ const Home = ({ notes }) => {
                   </Typography>
                 </CardContent>
                 <Typography color="text.secondary">
-                {testDate(note.createdAt, note.updatedAt, note)}
+                  {testDate(note.createdAt, note.updatedAt, note)}
                 </Typography>
                 <Accordion note={note} />
                 <CardActions
