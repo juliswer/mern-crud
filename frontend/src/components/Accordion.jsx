@@ -62,13 +62,13 @@ const AccordionComponent = ({ note }) => {
   return (
     <div>
       {note.comments.length > 1 ? (
-        <Accordion>
+        <Accordion style={{backgroundColor: 'rgba(120,180,255, 0.4)'}}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography>Comments: ({note.comments.length})</Typography>
+            <Typography style={{color: '#fff'}}>Comments: ({note.comments.length})</Typography>
           </AccordionSummary>
           <AccordionDetails
             style={{ display: "flex", justifyContent: "space-between" }}
@@ -77,7 +77,7 @@ const AccordionComponent = ({ note }) => {
               {note.comments.map((comment) => (
                 <div key={comment._id}>
                   {console.log(comment)}
-                  <Typography>{comment.title}</Typography>
+                  <Typography style={{color: "#ccc"}}>{comment.title}</Typography>
                   <Typography>{comment.description}</Typography>
                   <Typography>
                     {testDate(comment.createdAt, comment.updatedAt, comment)}
@@ -95,10 +95,10 @@ const AccordionComponent = ({ note }) => {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography>There are not comments yet</Typography>
+            <Typography style={{color: '#fff'}}>There are not comments yet</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Button variant="text" style={{color: '#fff'}} endIcon={<AddCommentOutlinedIcon />}>
+            <Button variant="text" style={{color: '#ccc'}} endIcon={<AddCommentOutlinedIcon />}>
               <Link
                 to={`/note/${note._id}`}
                 style={{ color: "inherit", textDecoration: "none" }}
