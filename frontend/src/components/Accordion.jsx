@@ -43,7 +43,7 @@ const AccordionComponent = ({ note }) => {
                   </Typography>
                   <Typography>{comment.description}</Typography>
                   <Typography>
-                    <ReactTimeAgo date={comment.createdAt} />
+                    Posted: <ReactTimeAgo date={comment.updatedAt} />
                   </Typography>
                 </div>
               ))}
