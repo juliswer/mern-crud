@@ -14,8 +14,14 @@ import SpeedDial from "../components/SpeedDial";
 import Accordion from "../components/Accordion";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 import ReactTimeAgo from "react-time-ago";
+import axios from "axios";
 
 const Home = ({ notes }) => {
+  
+  const toggleDone = async (id) => {
+    await axios.put(`http://localhost:4000/api/note/${id}/toggleDone`)
+  }
+
   const testDate = (createdDate, updatedDate, note) => {
     if (createdDate === updatedDate) {
       return (
@@ -117,13 +123,17 @@ const Home = ({ notes }) => {
                     </Link>
                   </Button>
                   {note.done === false ? (
-                    <CheckCircleOutlineTwoToneIcon
-                      style={{ color: "#F20000" }}
-                    />
+                    <Button onClick={toggleDone(note._id)}>
+                      <CheckCircleOutlineTwoToneIcon
+                        style={{ color: "#50B743" }}
+                      />
+                    </Button>
                   ) : (
-                    <CheckCircleOutlineTwoToneIcon
-                      style={{ color: "#50B743" }}
-                    />
+                    <Button>
+                      <CheckCircleOutlineTwoToneIcon
+                        style={{ color: "#F20000" }}
+                      />
+                    </Button>
                   )}
                 </CardActions>
               </Card>

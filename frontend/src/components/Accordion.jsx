@@ -81,7 +81,6 @@ const AccordionComponent = ({ note }) => {
           >
             {note.comments.map((comment) => (
               <div key={comment._id} style={{ display: "flex" }}>
-                {console.log(comment)}
                 <div>
                   <Typography style={{ color: "#ccc" }}>
                     {comment.title}
