@@ -20,7 +20,18 @@ const Home = ({ notes }) => {
   const testDate = (createdDate, updatedDate, note) => {
     if (createdDate === updatedDate) {
       return (
-        <Typography color="text.secondary">
+        <Typography
+          color="text.secondary"
+          variant="p"
+          component="h6"
+          style={{
+            fontFamily: "sans-serif",
+            fontStyle: "italic",
+            fontSize: "14px",
+            display: "flex",
+            justifyContent: "flex-end",
+          }}
+        >
           <CalendarMonthTwoToneIcon /> Created At:{" "}
           {date.toDateString(note.createdAt).slice(3)}
         </Typography>
@@ -35,6 +46,8 @@ const Home = ({ notes }) => {
             fontFamily: "sans-serif",
             fontStyle: "italic",
             fontSize: "14px",
+            display: "flex",
+            justifyContent: "flex-end",
           }}
         >
           <CalendarMonthTwoToneIcon /> Updated At:{" "}
@@ -69,12 +82,11 @@ const Home = ({ notes }) => {
                   <Typography variant="h6" component="h6" gutterBottom>
                     {note.title}
                   </Typography>
-                  <Typography color="text.secondary">
+                  <Typography color="text.secondary" gutterBottom>
                     {note.description}
                   </Typography>
+                  {testDate(note.createdAt, note.updatedAt, note)}
                 </CardContent>
-
-                {testDate(note.createdAt, note.updatedAt, note)}
 
                 <Accordion note={note} />
                 <CardActions
