@@ -8,6 +8,7 @@ import { Box, Button, Grid, Stack } from "@mui/material";
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import ReactTimeAgo from "react-time-ago";
 import AddCommentOutlinedIcon from "@mui/icons-material/AddCommentOutlined";
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import { Link } from "react-router-dom";
 
 const AccordionComponent = ({ note }) => {
@@ -80,6 +81,7 @@ const AccordionComponent = ({ note }) => {
           >
             {note.comments.map((comment) => (
               <div key={comment._id} style={{ display: "flex" }}>
+                {console.log(comment)}
                 <div>
                   <Typography style={{ color: "#ccc" }}>
                     {comment.title}
@@ -89,7 +91,8 @@ const AccordionComponent = ({ note }) => {
                     {testDate(comment.createdAt, comment.updatedAt, comment)}
                   </Typography>
                 </div>
-                {checkLike(comment)}
+                <Typography>{comment.liked === false && (<FavoriteIcon color="#DE4451" style={{color: '#DE4451'}} />)}</Typography>
+                <Typography>{comment.liked === true && (<FavoriteBorderTwoToneIcon style={{color: '#7E7E7E'}} />)}</Typography>
                 {/* <FavoriteBorderTwoToneIcon
                   style={{ position: "absolute", right: "10" }}
                 /> */}
