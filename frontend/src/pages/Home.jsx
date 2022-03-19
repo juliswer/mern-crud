@@ -27,7 +27,16 @@ const Home = ({ notes }) => {
       );
     } else if (createdDate !== updatedDate) {
       return (
-        <Typography color="text.secondary" variant="p" component="h6" style={{fontFamily: 'sans-serif' ,fontStyle: "italic", fontSize: '14px'}}>
+        <Typography
+          color="text.secondary"
+          variant="p"
+          component="h6"
+          style={{
+            fontFamily: "sans-serif",
+            fontStyle: "italic",
+            fontSize: "14px",
+          }}
+        >
           <CalendarMonthTwoToneIcon /> Updated At:{" "}
           {date.toDateString(note.updatedAt).slice(3)}
         </Typography>
@@ -41,7 +50,12 @@ const Home = ({ notes }) => {
         className="animate__animated animate__fadeInUp"
         style={{ marginTop: "20px" }}
       >
-        <Typography variant="h2" component="h1" gutterBottom style={{fontWeight: "bold", textAlign: "center"}}>
+        <Typography
+          variant="h2"
+          component="h1"
+          gutterBottom
+          style={{ fontWeight: "bold", textAlign: "center" }}
+        >
           NotiApp
         </Typography>
         <Typography variant="h4" component="h2" gutterBottom>

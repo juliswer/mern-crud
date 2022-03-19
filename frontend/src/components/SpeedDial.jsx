@@ -31,7 +31,7 @@ const SpeedDialComponent = () => {
             key={action.name}
             icon={action.icon}
             tooltipTitle={action.name}
-            onOpen={() => {
+            onClick={() => {
               navigate(action.route);
             }}
           />
