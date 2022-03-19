@@ -5,14 +5,57 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import FavoriteBorderTwoToneIcon from "@mui/icons-material/FavoriteBorderTwoTone";
 import { Box, Button, Grid, Stack } from "@mui/material";
-import CalendarMonthTwoToneIcon from "@mui/icons-material/CalendarMonthTwoTone";
+import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import ReactTimeAgo from "react-time-ago";
 import AddCommentOutlinedIcon from "@mui/icons-material/AddCommentOutlined";
 import { Link } from "react-router-dom";
 
 const AccordionComponent = ({ note }) => {
-  const checkLike = ({ liked }) => {
-    if (liked === true) {
+
+  const testDate = (createdDate, updatedDate, comment) => {
+    if (createdDate === updatedDate) {
+      return (
+        <Typography
+          variant="p"
+          component="h6"
+          style={{
+            fontFamily: "sans-serif",
+            fontStyle: "italic",
+            fontSize: "14px",
+            display: "flex",
+            justifyContent: "flex-end",
+            alignItems: "center",
+            color: '#7E7E7E'
+          }}
+        >
+          <AccessTimeOutlinedIcon />&nbsp;Posted&nbsp;
+          <ReactTimeAgo date={comment.createdAt} locale="en-US" />
+        </Typography>
+      );
+    } else if (createdDate !== updatedDate) {
+      return (
+        <Typography
+          variant="p"
+          component="h6"
+          style={{
+            fontFamily: "sans-serif",
+            fontStyle: "italic",
+            fontSize: "14px",
+            display: "flex",
+            justifyContent: "flex-end",
+            alignItems: "center",
+          }}
+        >
+          
+          &nbsp;Updated&nbsp;
+          <ReactTimeAgo date={comment.updatedAt} locale="en-US" />
+        </Typography>
+      );
+    }
+  };
+
+  const checkLike = (comment) => {
+    if (comment.liked) {
       <FavoriteBorderTwoToneIcon />;
     } else {
       <FavoriteBorderTwoToneIcon style={{ color: "#ccc" }} />;
@@ -41,14 +84,15 @@ const AccordionComponent = ({ note }) => {
                   <Typography style={{ color: "#ccc" }}>
                     {comment.title}
                   </Typography>
-                  <Typography>{comment.description}</Typography>
+                  <Typography gutterBottom>{comment.description}</Typography>
                   <Typography>
-                    Posted <ReactTimeAgo date={comment.updatedAt} />
+                    {testDate(comment.createdAt, comment.updatedAt, comment)}
                   </Typography>
                 </div>
-                <FavoriteBorderTwoToneIcon
+                {checkLike(comment)}
+                {/* <FavoriteBorderTwoToneIcon
                   style={{ position: "absolute", right: "10" }}
-                />
+                /> */}
               </div>
             ))}
           </AccordionDetails>
