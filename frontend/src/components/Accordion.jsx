@@ -4,7 +4,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import FavoriteBorderTwoToneIcon from "@mui/icons-material/FavoriteBorderTwoTone";
-import { Button, Grid } from "@mui/material";
+import { Box, Button, Grid, Stack } from "@mui/material";
 import CalendarMonthTwoToneIcon from "@mui/icons-material/CalendarMonthTwoTone";
 import ReactTimeAgo from "react-time-ago";
 import AddCommentOutlinedIcon from "@mui/icons-material/AddCommentOutlined";
@@ -35,19 +35,22 @@ const AccordionComponent = ({ note }) => {
           <AccordionDetails
             style={{ display: "flex", justifyContent: "space-between" }}
           >
-            <Grid style={{ display: "flex", justifyContent: "space-between" }}>
-              {note.comments.map((comment) => (
-                <div key={comment._id}>
+            {note.comments.map((comment) => (
+              <div key={comment._id} style={{ display: "flex" }}>
+                <div>
                   <Typography style={{ color: "#ccc" }}>
                     {comment.title}
                   </Typography>
                   <Typography>{comment.description}</Typography>
                   <Typography>
-                    Posted: <ReactTimeAgo date={comment.updatedAt} />
+                    Posted <ReactTimeAgo date={comment.updatedAt} />
                   </Typography>
                 </div>
-              ))}
-            </Grid>
+                <FavoriteBorderTwoToneIcon
+                  style={{ position: "absolute", right: "10" }}
+                />
+              </div>
+            ))}
           </AccordionDetails>
         </Accordion>
       ) : (
