@@ -6,11 +6,9 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import FavoriteBorderTwoToneIcon from "@mui/icons-material/FavoriteBorderTwoTone";
 import { Grid } from "@mui/material";
 import CalendarMonthTwoToneIcon from "@mui/icons-material/CalendarMonthTwoTone";
-import ReactTimeAgo from 'react-time-ago'
+import ReactTimeAgo from "react-time-ago";
 
 const AccordionComponent = ({ note }) => {
-  const date = new Date();
-
   const testDate = (createdDate, updatedDate, comment) => {
     if (createdDate === updatedDate) {
       return (
@@ -51,11 +49,11 @@ const AccordionComponent = ({ note }) => {
     }
   };
 
-  const checkLike = ({liked}) => {
+  const checkLike = ({ liked }) => {
     if (liked === true) {
       <FavoriteBorderTwoToneIcon />;
     } else {
-      <FavoriteBorderTwoToneIcon style={{color: '#ccc'}} />;
+      <FavoriteBorderTwoToneIcon style={{ color: "#ccc" }} />;
     }
   };
 

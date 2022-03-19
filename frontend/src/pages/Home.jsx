@@ -20,7 +20,6 @@ const Home = ({ notes }) => {
     if (createdDate === updatedDate) {
       return (
         <Typography
-          
           variant="p"
           component="h6"
           style={{
@@ -32,14 +31,14 @@ const Home = ({ notes }) => {
             alignItems: "center",
           }}
         >
-          <AccessTimeOutlinedIcon />&nbsp;Created&nbsp;
+          <AccessTimeOutlinedIcon />
+          &nbsp;Created&nbsp;
           <ReactTimeAgo date={note.createdAt} locale="en-US" />
         </Typography>
       );
     } else if (createdDate !== updatedDate) {
       return (
         <Typography
-          
           variant="p"
           component="h6"
           style={{
@@ -51,7 +50,8 @@ const Home = ({ notes }) => {
             alignItems: "center",
           }}
         >
-          <AccessTimeOutlinedIcon />&nbsp;Updated&nbsp;
+          <AccessTimeOutlinedIcon />
+          &nbsp;Updated&nbsp;
           <ReactTimeAgo date={note.updatedAt} locale="en-US" />
         </Typography>
       );
@@ -78,7 +78,15 @@ const Home = ({ notes }) => {
         <Grid container spacing={2}>
           {notes.map((note) => (
             <Grid item xs={4} key={note._id}>
-              <Card style={{ marginBottom: "30px", backgroundColor: "rgba(31,41,55,0.7)", color: '#fff', padding: '20px'}} variant="outlined">
+              <Card
+                style={{
+                  marginBottom: "30px",
+                  backgroundColor: "rgba(31,41,55,0.7)",
+                  color: "#fff",
+                  padding: "20px",
+                }}
+                variant="outlined"
+              >
                 <CardContent>
                   <Typography variant="h6" component="h6" gutterBottom>
                     {note.title}
