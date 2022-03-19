@@ -12,11 +12,10 @@ import { Link } from "react-router-dom";
 import CheckCircleOutlineTwoToneIcon from "@mui/icons-material/CheckCircleOutlineTwoTone";
 import SpeedDial from "../components/SpeedDial";
 import Accordion from "../components/Accordion";
-import CalendarMonthTwoToneIcon from "@mui/icons-material/CalendarMonthTwoTone";
-import ReactTimeAgo from 'react-time-ago'
+import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
+import ReactTimeAgo from "react-time-ago";
 
 const Home = ({ notes }) => {
-
   const testDate = (createdDate, updatedDate, note) => {
     if (createdDate === updatedDate) {
       return (
@@ -30,9 +29,10 @@ const Home = ({ notes }) => {
             fontSize: "14px",
             display: "flex",
             justifyContent: "flex-end",
+            alignItems: "center",
           }}
         >
-           Created: {" "}
+          <AccessTimeOutlinedIcon /> Created&nbsp;
           <ReactTimeAgo date={note.createdAt} locale="en-US" />
         </Typography>
       );
@@ -48,9 +48,10 @@ const Home = ({ notes }) => {
             fontSize: "14px",
             display: "flex",
             justifyContent: "flex-end",
+            alignItems: "center",
           }}
         >
-           Updated: {" "}
+          <AccessTimeOutlinedIcon /> Updated&nbsp;
           <ReactTimeAgo date={note.updatedAt} locale="en-US" />
         </Typography>
       );

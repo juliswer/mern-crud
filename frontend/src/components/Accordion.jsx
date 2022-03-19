@@ -6,6 +6,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import FavoriteBorderTwoToneIcon from "@mui/icons-material/FavoriteBorderTwoTone";
 import { Grid } from "@mui/material";
 import CalendarMonthTwoToneIcon from "@mui/icons-material/CalendarMonthTwoTone";
+import ReactTimeAgo from 'react-time-ago'
 
 const AccordionComponent = ({ note }) => {
   const date = new Date();
@@ -26,7 +27,7 @@ const AccordionComponent = ({ note }) => {
           }}
         >
           <CalendarMonthTwoToneIcon /> Created At:{" "}
-          {date.toDateString(comment.createdAt).slice(3)}
+          <ReactTimeAgo date={comment.createdAt} locale="en-US" />
         </Typography>
       );
     } else if (createdDate !== updatedDate) {
@@ -44,7 +45,7 @@ const AccordionComponent = ({ note }) => {
           }}
         >
           <CalendarMonthTwoToneIcon /> Updated At:{" "}
-          {date.toDateString(comment.updatedAt).slice(3)}
+          <ReactTimeAgo date={comment.updatedAt} locale="en-US" />
         </Typography>
       );
     }
