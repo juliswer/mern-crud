@@ -65,8 +65,8 @@ const NoteDetail = () => {
     }
   };
 
-  const toggleDone = async (id) => {
-    await axios.put(`http://localhost:4000/api/note/${id}/toggleDone`);
+  const toggleDone = async () => {
+    await axios.put(`http://localhost:4000/api/note/${note._id}/toggleDone`);
   };
 
   const fetchNote = async () => {
@@ -80,7 +80,7 @@ const NoteDetail = () => {
   }, []);
 
   return (
-    <Grid container >
+    <Grid container style={{display: 'flex', justifyContent: 'center', marginTop: '20px'}}  className="animate__animated animate__fadeInUp">
       <Grid item xs={6}>
         <Card
           style={{
@@ -99,10 +99,8 @@ const NoteDetail = () => {
             <Typography color="" gutterBottom>
               {note.description}
             </Typography>
-            {testDate(note.createdAt, note.updatedAt, note)}
           </CardContent>
 
-          <Accordion note={note} />
           <CardActions
             style={{ display: "flex", justifyContent: "space-between" }}
           >
@@ -117,7 +115,7 @@ const NoteDetail = () => {
                 style={{ color: "inherit", textDecoration: "none" }}
                 target="_blank"
               >
-                See Note
+                Share your note
               </Link>
             </Button>
             {note.done === false ? (
