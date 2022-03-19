@@ -14,7 +14,7 @@ const Layout = ({ children }) => {
         <AppBar
           position="sticky"
           className="animate__animated animate__fadeInDown"
-          style={{backgroundColor: '#6D64EB'}}
+          style={{backgroundColor: 'rgba(2,2,2,0.4)'}}
         >
           <Toolbar variant="dense">
             <IconButton
