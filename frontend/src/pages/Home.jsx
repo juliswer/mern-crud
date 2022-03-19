@@ -11,9 +11,12 @@ import AddLinkTwoToneIcon from "@mui/icons-material/AddLinkTwoTone";
 import { Link } from "react-router-dom";
 import CheckCircleOutlineTwoToneIcon from "@mui/icons-material/CheckCircleOutlineTwoTone";
 import SpeedDial from "../components/SpeedDial";
-import Accordion from '../components/Accordion';
+import Accordion from "../components/Accordion";
 
 const Home = ({ notes }) => {
+
+  const date = new Date();
+
   return (
     <div>
       <Container
@@ -25,7 +28,7 @@ const Home = ({ notes }) => {
         </Typography>
         <Grid container spacing={2}>
           {notes.map((note) => (
-            <Grid item xs={3} key={note._id}>
+            <Grid item xs={4} key={note._id}>
               <Card style={{ marginBottom: "30px" }}>
                 <CardContent>
                   <Typography variant="h6" component="h6" gutterBottom>
@@ -35,6 +38,9 @@ const Home = ({ notes }) => {
                     {note.description}
                   </Typography>
                 </CardContent>
+                <Typography color="text.secondary">
+                  {date.toDateString(note.createdAt).slice(3)}
+                </Typography>
                 <Accordion note={note} />
                 <CardActions
                   style={{ display: "flex", justifyContent: "space-between" }}
