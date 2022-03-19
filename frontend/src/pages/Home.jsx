@@ -18,7 +18,7 @@ const Home = ({ notes }) => {
   const date = new Date();
 
   const testDate = (createdDate, updatedDate, note) => {
-    if (createdDate == updatedDate) {
+    if (createdDate === updatedDate) {
       return (
         <Typography color="text.secondary">
           <CalendarMonthTwoToneIcon /> Created At:{" "}
