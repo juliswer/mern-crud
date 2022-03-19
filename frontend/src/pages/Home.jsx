@@ -20,7 +20,7 @@ const Home = ({ notes }) => {
     if (createdDate === updatedDate) {
       return (
         <Typography
-          color="text.secondary"
+          
           variant="p"
           component="h6"
           style={{
@@ -39,7 +39,7 @@ const Home = ({ notes }) => {
     } else if (createdDate !== updatedDate) {
       return (
         <Typography
-          color="text.secondary"
+          
           variant="p"
           component="h6"
           style={{
@@ -78,12 +78,12 @@ const Home = ({ notes }) => {
         <Grid container spacing={2}>
           {notes.map((note) => (
             <Grid item xs={4} key={note._id}>
-              <Card style={{ marginBottom: "30px" }}>
+              <Card style={{ marginBottom: "30px", backgroundColor: "rgba(0,0,0,0.7)", color: '#fff', padding: '20px'}} variant="outlined">
                 <CardContent>
                   <Typography variant="h6" component="h6" gutterBottom>
                     {note.title}
                   </Typography>
-                  <Typography color="text.secondary" gutterBottom>
+                  <Typography color="" gutterBottom>
                     {note.description}
                   </Typography>
                   {testDate(note.createdAt, note.updatedAt, note)}
