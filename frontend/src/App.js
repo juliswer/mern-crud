@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import NoteComment from "./pages/NoteComment";
 import NoteDetail from "./pages/NoteDetail";
 import NotWorking from "./pages/NotWoking";
+import CreateNote from "./pages/CreateNote";
 
 function App() {
   const [notesInfo, setNotesInfo] = useState([]);
@@ -36,6 +37,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home notes={notesInfo} />} />
+      <Route path="/create" element={<CreateNote />}/>
       <Route path="/note/:id" element={<NoteDetail />} />
       <Route path="/note/:id/comments/:commentId" element={<NoteComment />} />
       <Route path="/about" element={<About />} />

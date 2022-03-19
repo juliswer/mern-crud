@@ -11,6 +11,7 @@ import AddLinkTwoToneIcon from "@mui/icons-material/AddLinkTwoTone";
 import { Link } from "react-router-dom";
 import CheckCircleOutlineTwoToneIcon from "@mui/icons-material/CheckCircleOutlineTwoTone";
 import SpeedDial from "../components/SpeedDial";
+import Accordion from '../components/Accordion';
 
 const Home = ({ notes }) => {
   return (
@@ -34,6 +35,7 @@ const Home = ({ notes }) => {
                     {note.description}
                   </Typography>
                 </CardContent>
+                <Accordion note={note} />
                 <CardActions
                   style={{ display: "flex", justifyContent: "space-between" }}
                 >
