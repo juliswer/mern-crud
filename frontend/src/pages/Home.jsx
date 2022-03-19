@@ -12,10 +12,22 @@ import { Link } from "react-router-dom";
 import CheckCircleOutlineTwoToneIcon from "@mui/icons-material/CheckCircleOutlineTwoTone";
 import SpeedDial from "../components/SpeedDial";
 import Accordion from "../components/Accordion";
+import CalendarMonthTwoToneIcon from "@mui/icons-material/CalendarMonthTwoTone";
 
 const Home = ({ notes }) => {
-
   const date = new Date();
+
+  const testDate = (createdDate, updatedDate, note) => {
+    if(createdDate == updatedDate) {
+      return (
+        <h2><CalendarMonthTwoToneIcon /> Created At: {date.toDateString(note.createdAt).slice(3)}</h2>
+      )
+    } else if (createdDate !== updatedDate) {
+      return (
+        <h2><CalendarMonthTwoToneIcon /> Updated At: {date.toDateString(note.updatedAt).slice(3)}</h2>
+      )
+    }
+  }
 
   return (
     <div>
@@ -39,7 +51,7 @@ const Home = ({ notes }) => {
                   </Typography>
                 </CardContent>
                 <Typography color="text.secondary">
-                  {date.toDateString(note.createdAt).slice(3)}
+                {testDate(note.createdAt, note.updatedAt, note)}
                 </Typography>
                 <Accordion note={note} />
                 <CardActions
