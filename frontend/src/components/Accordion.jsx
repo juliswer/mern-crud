@@ -7,50 +7,10 @@ import FavoriteBorderTwoToneIcon from "@mui/icons-material/FavoriteBorderTwoTone
 import { Button, Grid } from "@mui/material";
 import CalendarMonthTwoToneIcon from "@mui/icons-material/CalendarMonthTwoTone";
 import ReactTimeAgo from "react-time-ago";
-import AddCommentOutlinedIcon from '@mui/icons-material/AddCommentOutlined';
+import AddCommentOutlinedIcon from "@mui/icons-material/AddCommentOutlined";
 import { Link } from "react-router-dom";
 
 const AccordionComponent = ({ note }) => {
-  const testDate = (createdDate, updatedDate, comment) => {
-    if (createdDate === updatedDate) {
-      return (
-        <Typography
-          color="text.secondary"
-          variant="p"
-          component="h6"
-          style={{
-            fontFamily: "sans-serif",
-            fontStyle: "italic",
-            fontSize: "14px",
-            display: "flex",
-            justifyContent: "flex-end",
-          }}
-        >
-          <CalendarMonthTwoToneIcon /> Created At:{" "}
-          <ReactTimeAgo date={comment.createdAt} locale="en-US" />
-        </Typography>
-      );
-    } else if (createdDate !== updatedDate) {
-      return (
-        <Typography
-          color="text.secondary"
-          variant="p"
-          component="h6"
-          style={{
-            fontFamily: "sans-serif",
-            fontStyle: "italic",
-            fontSize: "14px",
-            display: "flex",
-            justifyContent: "flex-end",
-          }}
-        >
-          <CalendarMonthTwoToneIcon /> Updated At:{" "}
-          <ReactTimeAgo date={comment.updatedAt} locale="en-US" />
-        </Typography>
-      );
-    }
-  };
-
   const checkLike = ({ liked }) => {
     if (liked === true) {
       <FavoriteBorderTwoToneIcon />;
@@ -61,14 +21,16 @@ const AccordionComponent = ({ note }) => {
 
   return (
     <div>
-      {note.comments.length > 1 ? (
-        <Accordion style={{backgroundColor: 'rgba(120,180,255, 0.4)'}}>
+      {note.comments.length >= 1 ? (
+        <Accordion style={{ backgroundColor: "rgba(120,180,255, 0.4)" }}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography style={{color: '#fff'}}>Comments: ({note.comments.length})</Typography>
+            <Typography style={{ color: "#fff" }}>
+              Comments: ({note.comments.length})
+            </Typography>
           </AccordionSummary>
           <AccordionDetails
             style={{ display: "flex", justifyContent: "space-between" }}
@@ -76,29 +38,35 @@ const AccordionComponent = ({ note }) => {
             <Grid style={{ display: "flex", justifyContent: "space-between" }}>
               {note.comments.map((comment) => (
                 <div key={comment._id}>
-                  {console.log(comment)}
-                  <Typography style={{color: "#ccc"}}>{comment.title}</Typography>
+                  <Typography style={{ color: "#ccc" }}>
+                    {comment.title}
+                  </Typography>
                   <Typography>{comment.description}</Typography>
                   <Typography>
-                    {testDate(comment.createdAt, comment.updatedAt, comment)}
+                    <ReactTimeAgo date={comment.createdAt} />
                   </Typography>
-                  {checkLike(comment.liked)}
                 </div>
               ))}
             </Grid>
           </AccordionDetails>
         </Accordion>
       ) : (
-        <Accordion style={{backgroundColor: 'rgba(120,180,255, 0.4)'}}>
+        <Accordion style={{ backgroundColor: "rgba(120,180,255, 0.4)" }}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography style={{color: '#fff'}}>There are not comments yet</Typography>
+            <Typography style={{ color: "#fff" }}>
+              There are not comments yet
+            </Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Button variant="text" style={{color: '#ccc'}} endIcon={<AddCommentOutlinedIcon />}>
+            <Button
+              variant="text"
+              style={{ color: "#ccc" }}
+              endIcon={<AddCommentOutlinedIcon />}
+            >
               <Link
                 to={`/note/${note._id}`}
                 style={{ color: "inherit", textDecoration: "none" }}

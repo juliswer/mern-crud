@@ -4,6 +4,7 @@ import axios from "axios";
 import { Typography, Snackbar, Grid, Button } from "@mui/material";
 import Alert from "@mui/material/Alert";
 import SendIcon from '@mui/icons-material/Send';
+import errorImage from '../assets/undraw_server_down_s-4-lk.svg';
 
 export const SnackBar = () => (
   <Snackbar autoHideDuration={6000}>
@@ -41,7 +42,7 @@ const NotWoking = () => {
         style={{ minHeight: "80vh",}}
       >
         <img
-          src="https://c.tenor.com/b4SAZN3xkM4AAAAM/andyrentz-giant-bomb.gif"
+          src={errorImage}
           alt="error"
           style={{ width: "300px", height: "300px" }}
           className="animate__animated animate__zoomIn"
