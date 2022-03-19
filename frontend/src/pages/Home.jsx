@@ -27,7 +27,7 @@ const Home = ({ notes }) => {
       );
     } else if (createdDate !== updatedDate) {
       return (
-        <Typography color="text.secondary">
+        <Typography color="text.secondary" variant="p" component="h6" style={{fontFamily: 'sans-serif' ,fontStyle: "italic", fontSize: '14px'}}>
           <CalendarMonthTwoToneIcon /> Updated At:{" "}
           {date.toDateString(note.updatedAt).slice(3)}
         </Typography>
@@ -41,8 +41,11 @@ const Home = ({ notes }) => {
         className="animate__animated animate__fadeInUp"
         style={{ marginTop: "20px" }}
       >
-        <Typography variant="h2" component="h1">
-          Home
+        <Typography variant="h2" component="h1" gutterBottom style={{fontWeight: "bold", textAlign: "center"}}>
+          NotiApp
+        </Typography>
+        <Typography variant="h4" component="h2" gutterBottom>
+          Make, read and share your notes!
         </Typography>
         <Grid container spacing={2}>
           {notes.map((note) => (
@@ -56,9 +59,9 @@ const Home = ({ notes }) => {
                     {note.description}
                   </Typography>
                 </CardContent>
-                <Typography color="text.secondary">
-                  {testDate(note.createdAt, note.updatedAt, note)}
-                </Typography>
+
+                {testDate(note.createdAt, note.updatedAt, note)}
+
                 <Accordion note={note} />
                 <CardActions
                   style={{ display: "flex", justifyContent: "space-between" }}
