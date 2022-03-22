@@ -24,8 +24,8 @@ import {
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import TwitterIcon from "@mui/icons-material/Twitter";
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import TelegramIcon from '@mui/icons-material/Telegram';
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import TelegramIcon from "@mui/icons-material/Telegram";
 
 const NoteDetail = () => {
   const { id } = useParams();
@@ -158,12 +158,19 @@ const NoteDetail = () => {
               </MenuItem>
               <MenuItem onClick={handleClose}>
                 <WhatsappShareButton quote={"This is my note!"} url={shareUrl}>
-                  <Button color="success" startIcon={<WhatsAppIcon />}>Share</Button>
+                  <Button color="success" startIcon={<WhatsAppIcon />}>
+                    Share
+                  </Button>
                 </WhatsappShareButton>
               </MenuItem>
               <MenuItem onClick={handleClose}>
                 <TelegramShareButton url={shareUrl} quote={"This is my note!"}>
-                  <Button style={{color: '#24A1DF'}} startIcon={<TelegramIcon />}>Share</Button>
+                  <Button
+                    style={{ color: "#24A1DF" }}
+                    startIcon={<TelegramIcon />}
+                  >
+                    Share
+                  </Button>
                 </TelegramShareButton>
               </MenuItem>
             </Menu>
