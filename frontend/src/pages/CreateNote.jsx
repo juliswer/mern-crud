@@ -6,7 +6,9 @@ import {
   Grid,
   Typography,
   TextField,
+  Button,
 } from "@mui/material";
+import NoteAddIcon from '@mui/icons-material/NoteAdd';
 
 const CreateNote = () => {
   return (
@@ -28,22 +30,37 @@ const CreateNote = () => {
         >
           <CardContent>
             <Typography
-              variant="h6"
-              component="h6"
+              variant="h3"
+              component="h1"
               gutterBottom
               style={{ textAlign: "center" }}
             >
               Create your note!
             </Typography>
             <div style={{ display: "flex", justifyContent: "space-around" }}>
-              <TextField label="Write a title" variant="standard" autoFocus color="warning" inputProps={{style: {color: '#fff'}}} />
-              <TextField label="Write a title" variant="outlined" />
+              <TextField
+                label="Write a title"
+                style={{ width: "13vw" }}
+                variant="standard"
+                autoFocus
+                color="warning"
+                InputProps={{ style: { color: "#fff" } }}
+                InputLabelProps={{ style: { color: "#fff" } }}
+              />
+              <TextField
+                label="Write a title"
+                style={{ width: "13vw" }}
+                variant="standard"
+                color="warning"
+                InputProps={{ style: { color: "#fff" } }}
+                InputLabelProps={{ style: { color: "#fff" } }}
+              />
             </div>
           </CardContent>
 
-          <CardActions
-            style={{ display: "flex", justifyContent: "space-between" }}
-          ></CardActions>
+          <CardActions>
+            <Button style={{margin: 'auto'}} variant='outlined' color='success' endIcon={<NoteAddIcon />}>Add Note</Button>
+          </CardActions>
         </Card>
       </Grid>
     </Grid>
