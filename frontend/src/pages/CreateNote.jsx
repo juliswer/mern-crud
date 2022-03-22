@@ -10,6 +10,8 @@ import {
 } from "@mui/material";
 import NoteAddIcon from "@mui/icons-material/NoteAdd";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CreateNote = () => {
   const [noteFormInfo, setNoteFormInfo] = useState({
@@ -26,8 +28,19 @@ const CreateNote = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await axios.post('http://localhost:4000/api/notes/new', noteFormInfo);
-    console.log(res);
+    try {
+      const res = await axios.post(
+        "http://localhost:4000/api/notes/new",
+        noteFormInfo
+      );
+      console.log(res);
+      if (res.status === 200) {
+        console.log("posted succesfully");
+        toast('Posted!')
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -95,6 +108,7 @@ const CreateNote = () => {
             </CardActions>
           </Card>
         </form>
+        < ToastContainer />
       </Grid>
     </Grid>
   );
