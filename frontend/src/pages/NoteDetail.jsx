@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import {
   Typography,
@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 import CheckCircleOutlineTwoToneIcon from "@mui/icons-material/CheckCircleOutlineTwoTone";
 import SpeedDial from "../components/SpeedDial";
 import Accordion from "../components/Accordion";
-import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteIcon from "@mui/icons-material/Delete";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 import ReactTimeAgo from "react-time-ago";
 import {
@@ -28,14 +28,36 @@ import MenuItem from "@mui/material/MenuItem";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import TelegramIcon from "@mui/icons-material/Telegram";
+import { ToastContainer, toast } from "react-toastify";
 
 const NoteDetail = () => {
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   const curentUrl = window.location.href;
   const shareUrl = curentUrl;
 
   const [note, setNote] = useState({});
+
+  const handleDelete = async () => {
+    try {
+      const res = await axios.delete(`http://localhost:4000/api/note/${id}`);
+      console.log(res);
+      toast.success("Deleted Succesfully!", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const testDate = (createdDate, updatedDate, note) => {
     if (createdDate === updatedDate) {
@@ -200,7 +222,12 @@ const NoteDetail = () => {
           </Card>
         </Grid>
       </Grid>
-      <Fab color="error" aria-label="add" style={{position: "absolute", bottom: '20px', right: '20px'}}>
+      <Fab
+        color="error"
+        aria-label="add"
+        style={{ position: "absolute", bottom: "20px", right: "20px" }}
+        onClick={handleDelete}
+      >
         <DeleteIcon />
       </Fab>
     </div>
