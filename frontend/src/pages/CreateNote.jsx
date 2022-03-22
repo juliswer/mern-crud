@@ -10,8 +10,8 @@ import {
 } from "@mui/material";
 import NoteAddIcon from "@mui/icons-material/NoteAdd";
 import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CreateNote = () => {
   const [noteFormInfo, setNoteFormInfo] = useState({
@@ -36,7 +36,15 @@ const CreateNote = () => {
       console.log(res);
       if (res.status === 200) {
         console.log("posted succesfully");
-        toast('Posted!')
+        toast.success("Posted Succesfully!", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+        });
       }
     } catch (error) {
       console.log(error);
@@ -108,7 +116,7 @@ const CreateNote = () => {
             </CardActions>
           </Card>
         </form>
-        < ToastContainer />
+        <ToastContainer />
       </Grid>
     </Grid>
   );
