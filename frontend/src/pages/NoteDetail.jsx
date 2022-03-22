@@ -4,7 +4,6 @@ import axios from "axios";
 import {
   Typography,
   Grid,
-  Container,
   Card,
   CardActions,
   CardContent,
@@ -17,9 +16,15 @@ import SpeedDial from "../components/SpeedDial";
 import Accordion from "../components/Accordion";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 import ReactTimeAgo from "react-time-ago";
+import { WhatsappShareButton, TwitterShareButton, TelegramShareButton } from "react-share";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 const NoteDetail = () => {
   const { id } = useParams();
+
+  const curentUrl = window.location.href;
+  const shareUrl = curentUrl;
 
   const [note, setNote] = useState({});
 
@@ -65,6 +70,15 @@ const NoteDetail = () => {
     }
   };
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   const toggleDone = async () => {
     await axios.put(`http://localhost:4000/api/note/${note._id}/toggleDone`);
   };
@@ -80,7 +94,11 @@ const NoteDetail = () => {
   }, []);
 
   return (
-    <Grid container style={{display: 'flex', justifyContent: 'center', marginTop: '20px'}}  className="animate__animated animate__fadeInUp">
+    <Grid
+      container
+      style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}
+      className="animate__animated animate__fadeInUp"
+    >
       <Grid item xs={6}>
         <Card
           style={{
@@ -109,15 +127,40 @@ const NoteDetail = () => {
               variant="text"
               color="warning"
               size="medium"
+              id="basic-button"
+              aria-controls={open ? "basic-menu" : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? "true" : undefined}
+              onClick={handleClick}
             >
-              <Link
-                to={`/note/${note._id}`}
-                style={{ color: "inherit", textDecoration: "none" }}
-                target="_blank"
-              >
-                Share your note
-              </Link>
+              Share your note
             </Button>
+            <Menu
+              id="basic-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                "aria-labelledby": "basic-button",
+              }}
+            >
+              <MenuItem onClick={handleClose}>
+                <TwitterShareButton url={shareUrl} quote={'This is my note :)'}>
+                  compartir por tw
+                </TwitterShareButton>
+              </MenuItem>
+              <MenuItem onClick={handleClose}>
+                <WhatsappShareButton quote={'This is my note!'} url={shareUrl}>
+                  compartir por wpp
+                </WhatsappShareButton>
+              </MenuItem>
+              <MenuItem onClick={handleClose}>
+                <TelegramShareButton url={shareUrl} quote={'This is my note!'}>
+                  compartir por fb
+                </TelegramShareButton>
+              </MenuItem>
+            </Menu>
+
             {note.done === false ? (
               <Button onClick={toggleDone(note._id)}>
                 <CheckCircleOutlineTwoToneIcon style={{ color: "#50B743" }} />
