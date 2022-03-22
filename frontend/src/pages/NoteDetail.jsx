@@ -16,9 +16,16 @@ import SpeedDial from "../components/SpeedDial";
 import Accordion from "../components/Accordion";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 import ReactTimeAgo from "react-time-ago";
-import { WhatsappShareButton, TwitterShareButton, TelegramShareButton } from "react-share";
+import {
+  WhatsappShareButton,
+  TwitterShareButton,
+  TelegramShareButton,
+} from "react-share";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import TelegramIcon from '@mui/icons-material/Telegram';
 
 const NoteDetail = () => {
   const { id } = useParams();
@@ -145,18 +152,18 @@ const NoteDetail = () => {
               }}
             >
               <MenuItem onClick={handleClose}>
-                <TwitterShareButton url={shareUrl} quote={'This is my note :)'}>
-                  compartir por tw
+                <TwitterShareButton url={shareUrl} quote={"This is my note :)"}>
+                  <Button startIcon={<TwitterIcon />}>Share</Button>
                 </TwitterShareButton>
               </MenuItem>
               <MenuItem onClick={handleClose}>
-                <WhatsappShareButton quote={'This is my note!'} url={shareUrl}>
-                  compartir por wpp
+                <WhatsappShareButton quote={"This is my note!"} url={shareUrl}>
+                  <Button color="success" startIcon={<WhatsAppIcon />}>Share</Button>
                 </WhatsappShareButton>
               </MenuItem>
               <MenuItem onClick={handleClose}>
-                <TelegramShareButton url={shareUrl} quote={'This is my note!'}>
-                  compartir por fb
+                <TelegramShareButton url={shareUrl} quote={"This is my note!"}>
+                  <Button style={{color: '#24A1DF'}} startIcon={<TelegramIcon />}>Share</Button>
                 </TelegramShareButton>
               </MenuItem>
             </Menu>
