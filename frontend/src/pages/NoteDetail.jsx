@@ -254,7 +254,7 @@ const NoteDetail = () => {
           Are you sure you want to delete this note?
         </DialogTitle>
         <DialogContent style={{backgroundColor: '#1D2331'}}>
-          <DialogContentText style={{color: '#FFF'}}>
+          <DialogContentText style={{color: '#ccc'}}>
             If you delete this note it will be completely removed from your
             list. You won't can get it back again!
           </DialogContentText>
