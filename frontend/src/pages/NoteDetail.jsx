@@ -9,6 +9,11 @@ import {
   CardContent,
   Button,
   Fab,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
 } from "@mui/material";
 import AddLinkTwoToneIcon from "@mui/icons-material/AddLinkTwoTone";
 import { Link } from "react-router-dom";
@@ -124,6 +129,16 @@ const NoteDetail = () => {
     fetchNote();
   }, []);
 
+  const [openDialog, setOpenDialog] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpenDialog(true);
+  };
+
+  const closeDialog = () => {
+    setOpenDialog(false);
+  };
+
   return (
     <div>
       <Grid
@@ -226,10 +241,30 @@ const NoteDetail = () => {
         color="error"
         aria-label="add"
         style={{ position: "absolute", bottom: "20px", right: "20px" }}
-        onClick={handleDelete}
+        onClick={handleClickOpen}
       >
         <DeleteIcon />
       </Fab>
+      <Dialog
+        open={openDialog}
+        onClose={closeDialog}
+        aria-labelledby="draggable-dialog-title"
+      >
+        <DialogTitle style={{ cursor: "move" }} id="draggable-dialog-title">
+          Are you sure you want to delete this note?
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            If you delete this note it will be completely removed from your list. You won't can get it back again!
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button autoFocus onClick={closeDialog}>
+            Cancel
+          </Button>
+          <Button onClick={handleDelete}>Delete</Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 };
