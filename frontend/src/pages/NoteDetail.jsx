@@ -250,16 +250,16 @@ const NoteDetail = () => {
         onClose={closeDialog}
         aria-labelledby="draggable-dialog-title"
       >
-        <DialogTitle style={{ cursor: "move" }} id="draggable-dialog-title">
+        <DialogTitle style={{ cursor: "move", backgroundColor: "#1D2331", color: '#fff'}} id="draggable-dialog-title">
           Are you sure you want to delete this note?
         </DialogTitle>
-        <DialogContent>
-          <DialogContentText>
+        <DialogContent style={{backgroundColor: '#1D2331'}}>
+          <DialogContentText style={{color: '#FFF'}}>
             If you delete this note it will be completely removed from your
             list. You won't can get it back again!
           </DialogContentText>
         </DialogContent>
-        <DialogActions>
+        <DialogActions style={{backgroundColor: '#1D2331'}}>
           <Button autoFocus onClick={closeDialog}>
             Cancel
           </Button>
