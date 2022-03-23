@@ -255,7 +255,8 @@ const NoteDetail = () => {
         </DialogTitle>
         <DialogContent>
           <DialogContentText>
-            If you delete this note it will be completely removed from your list. You won't can get it back again!
+            If you delete this note it will be completely removed from your
+            list. You won't can get it back again!
           </DialogContentText>
         </DialogContent>
         <DialogActions>
