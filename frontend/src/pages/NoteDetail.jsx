@@ -260,10 +260,10 @@ const NoteDetail = () => {
           </DialogContentText>
         </DialogContent>
         <DialogActions style={{backgroundColor: '#1D2331'}}>
-          <Button autoFocus onClick={closeDialog}>
+          <Button autoFocus onClick={closeDialog} color="warning">
             Cancel
           </Button>
-          <Button onClick={handleDelete}>Delete</Button>
+          <Button onClick={handleDelete} color="error">Delete</Button>
         </DialogActions>
       </Dialog>
     </div>
