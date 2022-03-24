@@ -74,7 +74,7 @@ const Layout = ({ children }) => {
         style={{
           position: "absolute",
           bottom: "20px",
-          left: "20px",
+          left: "19px",
           paddingTop: "25px",
           paddingBottom: "25px",
           paddingRight: "13px",
