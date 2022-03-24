@@ -3,6 +3,7 @@ import { Typography, Container, Button, Link } from "@mui/material";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 const About = () => {
   const [copy, setCopy] = useState(false);
@@ -19,7 +20,7 @@ const About = () => {
         I used the MERN Stack to develop it. If you think you can make something
         better, you can clone or fork the Github's Repo and post it!
       </Typography>
-      <Typography variant="h6" component="h3">
+      <Typography variant="h6" component="h3" gutterBottom>
         If you want to know more about me and my projects, you can visit my
         &nbsp;
         <Button
@@ -37,13 +38,23 @@ const About = () => {
         onCopy={() => setCopy(true)}
         text="git clone https://github.com/juliswer/mern-crud.git"
       >
-        <Button
-          variant="outlined"
-          color="warning"
-          endIcon={<ContentCopyIcon />}
-        >
-          {copy ? `It's in your clipboard!` : "Copy clone link (git)"}
-        </Button>
+        {copy ? (
+          <Button
+            variant="outlined"
+            color="warning"
+            endIcon={<CheckCircleIcon />}
+          >
+            It's in your clipboard!
+          </Button>
+        ) : (
+          <Button
+            variant="outlined"
+            color="warning"
+            endIcon={<ContentCopyIcon />}
+          >
+            Copy clone link (git)
+          </Button>
+        )}
       </CopyToClipboard>
     </Container>
   );
