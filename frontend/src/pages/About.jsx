@@ -10,7 +10,7 @@ const About = () => {
 
   return (
     <Container className="animate__animated animate__bounceInUp">
-      <Typography variant="h3" component="h1">About Page</Typography>
+      <Typography variant="h3" component="h1" gutterBottom>About This Project</Typography>
       <Typography variant="h5" component="h2">This app was developed by Julian Swerdlin in March 2022.</Typography>
       <Typography variant="h6" component="h3">I used the MERN Stack to develop it. If you think you can make something better, you can clone or fork the Github's Repo and post it!</Typography>
       <Typography variant="h6" component="h3">If you want to know more about me and my projects, you can visit my <Link href="https://github.com/juliswer" target="_blank"><GitHubIcon />Github</Link></Typography>      
