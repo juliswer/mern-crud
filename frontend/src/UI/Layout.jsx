@@ -41,7 +41,8 @@ const Layout = ({ children }) => {
       <Fab
         aria-label="add"
         style={{ position: "absolute", bottom: "20px", left: "20px" }}
-        onClick={() => window.location.replace('https://github.com/juliswer/mern-crud')}
+        href="https://github.com/juliswer/mern-crud"
+        target="_blank"
       >
         <GitHubIcon style={{fontSize: "40px"}} />
       </Fab>
