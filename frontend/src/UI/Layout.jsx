@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { Fab } from "@mui/material";
 import {useNavigate} from 'react-router-dom'
 import GitHubIcon from "@mui/icons-material/GitHub";
+import AddLinkIcon from '@mui/icons-material/AddLink';
 
 const Layout = ({ children }) => {
 
@@ -40,11 +41,14 @@ const Layout = ({ children }) => {
       {children}
       <Fab
         aria-label="add"
-        style={{ position: "absolute", bottom: "20px", left: "20px" }}
+        size="small"
+        className="animate__animated animate__fadeInUp"
+        style={{ position: "absolute", bottom: "20px", left: "20px", paddingTop: '25px', paddingBottom: '25px', paddingRight: '13px', paddingLeft: '13px' }}
         href="https://github.com/juliswer/mern-crud"
         target="_blank"
+        variant="extended"
       >
-        <GitHubIcon style={{fontSize: "40px"}} />
+        <GitHubIcon style={{fontSize: "40px"}} />&nbsp; See Repo &nbsp;<AddLinkIcon />
       </Fab>
     </div>
   );
