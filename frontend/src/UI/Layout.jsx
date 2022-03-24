@@ -11,7 +11,7 @@ import { Fab } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import AddLinkIcon from "@mui/icons-material/AddLink";
 import {useLocation} from 'react-router-dom';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 
 const Layout = ({ children }) => {
 
@@ -45,7 +45,7 @@ const Layout = ({ children }) => {
                 location.pathname === "/" ? (
                   <EventNoteTwoToneIcon />
                 ) : (
-                  <ArrowBackIcon />
+                  <HomeOutlinedIcon style={{fontSize: "25px"}} />
                 )
               }
             </Link>
