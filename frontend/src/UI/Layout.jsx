@@ -1,6 +1,7 @@
 import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
@@ -9,37 +10,62 @@ import { Link } from "react-router-dom";
 import { Fab } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import AddLinkIcon from "@mui/icons-material/AddLink";
+import {useLocation} from 'react-router-dom';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const Layout = ({ children }) => {
 
+  const location = useLocation()
+
   return (
     <div>
-        <Box>
+      <Box>
+        <Stack
+          direction="row"
+          spacing={1}
+          className="animate__animated animate__fadeInDown"
+        >
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            style={{
+              borderRadius: "40px",
+              backgroundColor: "rgba(223,52,46,0.4)",
+              paddingTop: "10px",
+              paddingBottom: "8px",
+              paddingLeft: "20px",
+              paddingRight: "20px",
+              marginLeft: "20px",
+            }}
+            sx={{ mr: 1 }}
+          >
+            <Link to="/" style={{ color: "inherit" }}>
+              {
+                location.pathname === "/" ? (
+                  <EventNoteTwoToneIcon />
+                ) : (
+                  <ArrowBackIcon />
+                )
+              }
+            </Link>
+          </IconButton>
           <AppBar
             position="sticky"
-            className="animate__animated animate__fadeInDown"
             style={{
               borderRadius: "40px",
               backgroundColor: "rgba(223,141,46,0.4)",
+              width: "90%",
             }}
           >
             <Toolbar variant="dense">
-              <IconButton
-                edge="start"
-                color="inherit"
-                aria-label="menu"
-                sx={{ mr: 1 }}
-              >
-                <Link to="/" style={{ color: "inherit" }}>
-                  <EventNoteTwoToneIcon />
-                </Link>
-              </IconButton>
               <Typography variant="h6" color="inherit" component="div">
                 Notes App
               </Typography>
             </Toolbar>
           </AppBar>
-        </Box>
+        </Stack>
+      </Box>
       {children}
       <Fab
         aria-label="add"
