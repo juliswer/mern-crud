@@ -6,8 +6,14 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import EventNoteTwoToneIcon from "@mui/icons-material/EventNoteTwoTone";
 import { Link } from "react-router-dom";
+import { Fab } from "@mui/material";
+import {useNavigate} from 'react-router-dom'
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 const Layout = ({ children }) => {
+
+  const navigate = useNavigate();
+
   return (
     <div>
       <Box>
@@ -32,6 +38,13 @@ const Layout = ({ children }) => {
         </AppBar>
       </Box>
       {children}
+      <Fab
+        aria-label="add"
+        style={{ position: "absolute", bottom: "20px", left: "20px" }}
+        onClick={() => window.location.replace('https://github.com/juliswer/mern-crud')}
+      >
+        <GitHubIcon style={{fontSize: "40px"}} />
+      </Fab>
     </div>
   );
 };
